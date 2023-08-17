@@ -47,7 +47,8 @@ module AwesomePrint
       elsif (hash = convert_to_hash(object))
         awesome_hash(hash)
       else
-        awesome_simple(object.inspect.to_s, type, @inspector)
+        object = type == :string ? object : object.inspect.to_s
+        awesome_simple(object, type, @inspector)
       end
     end
 
